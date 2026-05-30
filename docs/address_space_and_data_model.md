@@ -55,6 +55,14 @@ ProductionLine_01
 | DB101.DBD14 | Machine_01.Production.CycleTime |
 | DB102.DBD20 | Machine_01.Energy.PowerConsumption |
 
+## Scaling the Address Space
+
+This project shows one representative machine as a simplified example. In a real production environment, the structure would usually be repeated for multiple machines, stations, or production lines.
+
+For larger systems, standardized information models or OPC UA Companion Specifications can help define consistent structures for machine and production data.
+
+The goal is to keep data understandable, reusable, and consistent across machines and systems.
+
 ## Design Principle
 
 Expose structured machine data with context. Do not expose the whole PLC project or unclear internal memory.
