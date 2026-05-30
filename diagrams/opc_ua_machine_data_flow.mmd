@@ -1,0 +1,23 @@
+flowchart TB
+    A["Machine Cell Zone<br/>PLC / HMI / Drives / Robot<br/>Machine data source"]
+    B["OT Production Zone<br/>SCADA / Historian<br/>Monitoring and storage"]
+    C["Industrial DMZ<br/>OPC UA Gateway / Data Broker<br/>Controlled IT/OT exchange"]
+    D["IT / MES Layer<br/>MES / Database / Dashboard<br/>Reporting and visualization"]
+    E["OPC UA Server<br/>PLC / Gateway / SCADA / Edge"]
+    F["OPC UA Clients<br/>SCADA / Historian / MES / Dashboard"]
+    G["Selected Machine Data<br/>Status / Alarms / Counters / Cycle Time / Energy"]
+    H["Blocked Direct Access<br/>Office PC → PLC<br/>Unknown laptop → PLC<br/>Internet → PLC"]
+    A -->|"selected PLC and machine data"| B
+    B -->|"structured production data"| C
+    C -->|"approved data exchange"| D
+    E -->|"provides selected data"| F
+    F -->|"read / subscribe / limited write"| G
+    H -. "blocked" .-> A
+    classDef cell fill:#ecfeff,stroke:#0891b2,stroke-width:2px,color:#0f172a;
+    classDef ot fill:#f5f3ff,stroke:#7c3aed,stroke-width:2px,color:#0f172a;
+    classDef dmz fill:#fffbeb,stroke:#d97706,stroke-width:2px,color:#0f172a;
+    classDef it fill:#ecfdf5,stroke:#059669,stroke-width:2px,color:#0f172a;
+    classDef opc fill:#eff6ff,stroke:#2563eb,stroke-width:2px,color:#0f172a;
+    classDef data fill:#f1f5f9,stroke:#64748b,stroke-width:2px,color:#0f172a;
+    classDef blocked fill:#fef2f2,stroke:#dc2626,stroke-width:2px,color:#991b1b;
+    class A cell; class B ot; class C dmz; class D it; class E opc; class F opc; class G data; class H blocked;
