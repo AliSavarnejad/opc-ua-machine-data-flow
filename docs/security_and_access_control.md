@@ -26,6 +26,21 @@ OPC UA Server
 Allowed communication
 ```
 
+## OPC UA Transport Security
+
+OPC UA security is not only based on firewall rules, network segmentation, and user permissions. OPC UA also includes its own application-level security model.
+
+| Concept | Meaning | Example |
+|---|---|---|
+| Security Mode | Defines whether OPC UA messages are protected | None, Sign, SignAndEncrypt |
+| Security Policy | Defines the cryptographic algorithms used | Basic256Sha256, Aes128-Sha256-RsaOaep |
+| Application Certificates | Establish trust between OPC UA client and server applications | Client and server certificates |
+| Trust List | Defines which client/server certificates are trusted | Approved OPC UA clients only |
+
+In a production environment, insecure modes such as `None` should be avoided unless there is a specific controlled reason. A stronger setup should use signed or encrypted communication, trusted application certificates, approved client/server relationships, and documented certificate handling.
+
+This project is conceptual and does not include full certificate deployment, certificate lifecycle management, or vendor-specific OPC UA configuration.
+
 ## Access Types
 
 | Access Type | Meaning | Risk |
