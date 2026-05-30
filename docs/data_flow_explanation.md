@@ -52,6 +52,19 @@ Access type: Read + Limited Write.
 
 Typical data: MachineStatus, ProductionCount, RejectCount, CycleTime, EnergyConsumption, OEE-related values, DowntimeStatus.
 
+## Subscription and Data Update Considerations
+
+In OPC UA, clients can subscribe to selected values instead of continuously polling all data. Subscription-based communication helps reduce unnecessary communication load and allows clients to receive updates based on configured parameters.
+
+Important configuration concepts include:
+
+| Parameter | Meaning |
+|---|---|
+| SamplingInterval | How often the server checks the value of a monitored item |
+| PublishingInterval | How often the server publishes notifications to the client |
+
+The correct values depend on the use case. Fast-changing process values, alarms, counters, and reporting data may require different update rates. A real implementation must balance data freshness, network load, server load, and operational requirements.
+
 Purpose: visualization, KPI monitoring, and management overview.
 
 Access type: Read / Subscribe.
